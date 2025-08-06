@@ -46,7 +46,6 @@ const userSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-// Declare the sparse unique index explicitly to avoid duplicates on null values
 userSchema.index({ Phonenumber: 1 }, { unique: true, sparse: true });
 
 
