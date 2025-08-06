@@ -10,8 +10,8 @@ const app = express();
 
 
 const corsOptions = {
-  origin: 'http://localhost:3001', // your frontend address
-  credentials: true, // if using cookies/auth headers
+  origin: 'http://localhost:3001', 
+  credentials: true, 
 };
 
 app.use(cors(corsOptions));
