@@ -1,11 +1,20 @@
 import express from 'express'
 import { PORT } from './config/env.js'
+import cors from 'cors';
 import errorMiddleware from './middleware/error.middleware.js';
 import connectToDatabase from './database/mongodb.js';
 import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.router.js';
 import adminRouter from './routes/admin.routes.js';
 const app = express();
+
+
+const corsOptions = {
+  origin: 'http://localhost:3001', // your frontend address
+  credentials: true, // if using cookies/auth headers
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
