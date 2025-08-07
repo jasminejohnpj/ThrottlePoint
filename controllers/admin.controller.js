@@ -13,7 +13,7 @@ export const admin = async (req, res, next) => {
 
         const newAdmin = await Admin.create({ Username, Password: hashedPassword });
 
-        return res.status(201).json({ message: "Admin created Successfully", admin: newAdmin });
+        return res.status(200).json({ message: "Admin created Successfully", admin: newAdmin });
     } catch (error) {
         if (!error.statusCode) {
             error.statusCode = 500;
