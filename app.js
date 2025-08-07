@@ -6,6 +6,7 @@ import connectToDatabase from './database/mongodb.js';
 import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.router.js';
 import adminRouter from './routes/admin.routes.js';
+import listRouter from './routes/list.routes.js';
 const app = express();
 
 const corsOptions = {
@@ -35,6 +36,7 @@ app.use(express.json());
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/admin', adminRouter);
+app.use('/api/v1/list' , listRouter);
 
 app.use(errorMiddleware);
 
