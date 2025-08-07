@@ -8,11 +8,24 @@ import userRouter from './routes/user.router.js';
 import adminRouter from './routes/admin.routes.js';
 const app = express();
 
+// const corsOptions = {
+//   origin: 'http://localhost:3001' || '*', 
+//   credentials: true, 
+// };
+
+const allowedOrigins = ['http://localhost:3001', '*'];
 
 const corsOptions = {
- origin:  '*', 
-  credentials: true, 
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 };
+
 
 app.use(cors(corsOptions));
 
