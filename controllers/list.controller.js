@@ -1,7 +1,7 @@
-import Categories from '../models/categories.js';
+// import Categories from '../models/categories.js';
 
-export const trending = async (req, res, next) =>{
-    try{
+// export const trending = async (req, res, next) =>{
+//     try{
         
-    }
-}
+//     }
+// }
