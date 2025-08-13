@@ -31,3 +31,21 @@ export const featuredList = async (req, res, next) => {
   }
 };
 
+
+export const category = async(req, res, next) => {
+  try {
+    const list = await Categories.find();
+
+    const result = list.flatMap(item => [item.TrendingBikes, item.FeaturedBikes]);
+    if(!result){
+      return res.status(404).json({message:"category list is empty"});
+    }
+    return res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+
