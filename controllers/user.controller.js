@@ -31,7 +31,7 @@ export const profile = async (req, res, next) => {
 export const profileView = async (req, res, next) => {
   try {
     const existingUser = req.user; 
-    console.log(existingUser);
+    
     if (!existingUser) {
       return res.status(404).json({ message: "User not found" });
     }

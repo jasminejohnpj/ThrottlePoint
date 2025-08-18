@@ -30,9 +30,8 @@ const corsOptions = {
 
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/user', userRouter);
@@ -42,7 +41,6 @@ app.use('/api/v1/products' , productRouter);
 app.use(errorMiddleware);
 
 
-app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req,res) =>
     {

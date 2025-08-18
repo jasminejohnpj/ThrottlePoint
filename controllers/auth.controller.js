@@ -52,6 +52,8 @@ export const signIn = async(req , res, next) =>{
   }
 }
 
+
+
 export const resetPassword = async (req, res, next) => {
   try {
     const { Email, Password } = req.body;
@@ -61,8 +63,9 @@ export const resetPassword = async (req, res, next) => {
       error.statusCode = 400;
       throw error;
     }
-
+                                                                                                                                                               
     const existingUser = await User.findOne({ Email });
+
     if (!existingUser) {
       const error = new Error("User does not exist");
       error.statusCode = 404;
@@ -84,3 +87,6 @@ export const resetPassword = async (req, res, next) => {
     next(error);
   }
 };
+
+
+

@@ -1,9 +1,16 @@
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
-    bikeName: {
+     brand: {
         type: String,
-        required: [true, 'Product name is required'],
+        required: [true, 'Brand name is required'],
+        minlength: 2,
+        maxlength: 50,
+        trim: true
+    } ,
+   model: {
+        type: String,
+        required: [true, 'Model name is required'],
         minlength: 2,
         maxlength: 50,
         trim: true
